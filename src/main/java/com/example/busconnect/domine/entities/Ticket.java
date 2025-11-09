@@ -40,6 +40,22 @@ public class Ticket {
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20)
+    private PassengerType passengerType;
+
+    @Column(precision = 10, scale = 2)
+    private BigDecimal discountAmount;
+
+    @Column(name = "cancelled_at")
+    private LocalDateTime cancelledAt;
+
+    @Column(name = "refund_amount",precision = 10, scale = 2)
+    private BigDecimal refundAmount;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "cancellation_policy", length = 50)
+    private CancellationPolicy cancellationPolicy;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "from_stop_id", nullable = false)

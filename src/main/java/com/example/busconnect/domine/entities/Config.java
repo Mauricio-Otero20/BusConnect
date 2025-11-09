@@ -33,11 +33,15 @@ public class Config {
 
     // Constantes para configuraciones comunes
     public static final String SEAT_HOLD_MINUTES = "seat.hold.minutes";
-    public static final String OVERBOOKING_PERCENTAGE = "overbooking.percentage";
     public static final String NO_SHOW_FEE = "no.show.fee";
     public static final String BAGGAGE_FREE_WEIGHT_KG = "baggage.free.weight.kg";
     public static final String BAGGAGE_EXTRA_PRICE_PER_KG = "baggage.extra.price.per.kg";
+
     public static final String CANCELLATION_FULL_REFUND_HOURS = "cancellation.full.refund.hours";
     public static final String CANCELLATION_PARTIAL_REFUND_HOURS = "cancellation.partial.refund.hours";
     public static final String CANCELLATION_PARTIAL_REFUND_PERCENTAGE = "cancellation.partial.refund.percentage";
+
+    public static final String OVERBOOKING_PERCENTAGE = "overbooking.percentage";
+    public static final String OVERBOOKING_MAX_PERCENTAGE = "overbooking.max.percentage";
+    public static final String OVERBOOKING_REQUIRES_APPROVAL = "overbooking.requires_approval";
 }

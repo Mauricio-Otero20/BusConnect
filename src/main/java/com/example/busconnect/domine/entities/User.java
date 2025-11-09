@@ -5,7 +5,10 @@ import com.example.busconnect.domine.entities.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
+
 import lombok.Builder.Default;
 
 @Entity
@@ -39,9 +42,14 @@ public class User {
 
      @Column(nullable = false, length = 255)
     private String passwordHash;
+     @Column(name ="date_of_birth", nullable = false)
+     private LocalDate dateOfBirth;
 
      @Default
      @Column(nullable = false, updatable = false)
     private LocalDateTime createAt =  LocalDateTime.now();
+     public int getAge(){
+         return Period.between(this.dateOfBirth, LocalDate.now()).getYears();
+     }
 
 }

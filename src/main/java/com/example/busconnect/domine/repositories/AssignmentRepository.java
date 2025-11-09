@@ -16,8 +16,9 @@ public interface AssignmentRepository extends JpaRepository<Assignment, Long> {
     Optional<Assignment> findByTripId(Long tripId);
 
     List<Assignment> findByDriverId(Long driverId);
-
+    List<Assignment> findByDriverIdAndAssignedAtBetween(Long driverId, LocalDateTime start, LocalDateTime end);
     List<Assignment> findByDispatcherId(Long dispatcherId);
+
 
     @Query("SELECT a FROM Assignment a JOIN FETCH a.trip t JOIN FETCH a.driver " +
             "WHERE a.trip.id = :tripId")

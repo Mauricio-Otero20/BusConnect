@@ -23,6 +23,9 @@ public class SeatHold {
     @Column(nullable = false)
     private LocalDateTime expiresAt;
 
+    @Column(nullable = false, length = 10)
+    private String seatNumber;
+
     @Default
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
@@ -35,9 +38,6 @@ public class SeatHold {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "trip_id", nullable = false)
     private Trip trip;
-
-    @Column(nullable = false, length = 10)
-    private String seatNumber;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)

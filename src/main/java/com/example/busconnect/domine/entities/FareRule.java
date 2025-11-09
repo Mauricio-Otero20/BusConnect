@@ -1,6 +1,7 @@
 package com.example.busconnect.domine.entities;
 
 import com.example.busconnect.domine.entities.enums.DynamicPricingStatus;
+import com.example.busconnect.domine.entities.enums.PassengerType;
 import io.hypersistence.utils.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
 import lombok.*;
@@ -35,6 +36,10 @@ public class FareRule {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 10)
     private DynamicPricingStatus dynamicPricing = DynamicPricingStatus.OFF;
+
+    @Type(JsonType.class)
+    @Column(columnDefinition = "jsonb")
+    private Map<PassengerType, BigDecimal> passengerDiscounts;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "route_id", nullable = false)
